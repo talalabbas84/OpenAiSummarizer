@@ -20,7 +20,6 @@ export default async function summarize(
       top_p: 1,
       frequency_penalty: 0.5,
       presence_penalty: 0.5,
-      stop: ["'"],
       n: 3
     });
     res.status(200).json(response.data.choices);

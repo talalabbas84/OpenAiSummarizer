@@ -15,12 +15,14 @@ export default async function summarize(
     const response = await openai.createCompletion({
       model: 'text-davinci-003',
       prompt,
-      max_tokens: 100,
-      temperature: 0.5,
+      max_tokens: 200,
+      temperature: 0.7,
       top_p: 1,
       frequency_penalty: 0.5,
       presence_penalty: 0.5,
-      n: 3
+      n: 3,
+      stop: ['\n\n']
+      
     });
     res.status(200).json(response.data.choices);
   } catch (error) {
